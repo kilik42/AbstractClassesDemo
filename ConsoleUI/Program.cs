@@ -24,6 +24,8 @@ namespace ConsoleUI
              * Vehicle shall have a virtual method called DriveVirtual with a base implementation.
              */
 
+
+
             /* 
              * Now create 2 non-abstract classes: Car and Motorcycle, that inherit from Vehicle
              * Add a distict property in the 2 derived classes such as HasTrunk for Car and HasSideCart for Motorcycle
@@ -31,7 +33,11 @@ namespace ConsoleUI
              * Only in the Motorcycle class will you override the virtual drive method
             */
 
+
+
             // Create a list of Vehicle called vehicles
+
+            var vehicles = new List<Vehicle>();
 
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
@@ -39,14 +45,38 @@ namespace ConsoleUI
              * Set the properties with object initializer syntax
              */
 
+            //car
+            var car1 = new Car() { HasTrunk = true, Make = "Ford", Model = "Focus", Year = 2013 };
+
+            //motorcycle
+            var motor1 = new Motorcycle() { HasSideCart = true, Make = "he", Model = "Chopper", Year = 1888 };
+
+            // 2 instances of type vehicle 
+            Vehicle sedan = new Car() { Make = "Dodge", Model = "Blah", Year = 2000 };
+            Vehicle sport = new Car() { Make = "damn", Model = "Tesla", Year = 2015 };
+
+
             /*
              * Add the 4 vehicles to the list
              * Using a foreach loop iterate over each of the properties
              */
 
+            vehicles.Add(sedan);
+            vehicles.Add(motor1);
+            vehicles.Add(car1);
+            vehicles.Add(motor1);
+
+            foreach(var vehicle in vehicles)
+            {
+                Console.WriteLine(vehicle.Make);
+                Console.WriteLine(vehicle.Model);
+                Console.WriteLine(vehicle.Year);
+
+            }
+
             // Call each of the drive methods for one car and one motorcycle
 
-            #endregion            
+            #endregion
             Console.ReadLine();
         }
     }
